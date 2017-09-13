@@ -215,8 +215,6 @@ Notifications._onNotification = function(data, isFromBackground = null) {
 
 	if ( this.onNotification !== false ) {
 		if ( Platform.OS === 'ios' ) {
-			var sound = data.foreground ? '' : 'default';
-
 			this.onNotification({
 			  foreground: ! isFromBackground,
 			  userInteraction: isFromBackground,
@@ -224,8 +222,7 @@ Notifications._onNotification = function(data, isFromBackground = null) {
 			  data: data.getData(),
 			  badge: data.getBadgeCount(),
 			  alert: data.getAlert(),
-			  // sound: data.getSound()
-			  sound: sound
+			  sound: ''
 			});
 		} else {
 			var notificationData = {
